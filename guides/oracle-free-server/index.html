@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn how to get a powerful, forever-free ARM server from Oracle Cloud. 4 vCPUs, 24GB RAM, and 200GB storage for ₹0.">
+    <meta name="author" content="Dev Guides">
+    <title>Oracle Free Server Guide | Dev Guides</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/shared-styles.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>">
+    <style>
+        .guide-header {
+            padding: var(--spacing-3xl) 0 var(--spacing-xl);
+            border-bottom: 1px solid var(--border-color)
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-lg)
+        }
+
+        .breadcrumb a {
+            color: var(--text-muted)
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-secondary)
+        }
+
+        .guide-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-lg)
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: var(--text-sm);
+            color: var(--text-muted)
+        }
+
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: var(--spacing-2xl);
+            padding: var(--spacing-2xl) 0
+        }
+
+        @media(max-width:900px) {
+            .guide-layout {
+                grid-template-columns: 1fr
+            }
+
+            .sidebar {
+                display: none
+            }
+        }
+
+        .sidebar {
+            position: sticky;
+            top: var(--spacing-lg);
+            height: fit-content
+        }
+
+        .guide-content {
+            max-width: 800px
+        }
+
+        .guide-content h2 {
+            font-size: var(--text-2xl);
+            margin: var(--spacing-2xl) 0 var(--spacing-lg);
+            padding-top: var(--spacing-lg)
+        }
+
+        .guide-content h3 {
+            font-size: var(--text-xl);
+            margin: var(--spacing-xl) 0 var(--spacing-md)
+        }
+
+        .guide-content p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8
+        }
+
+        .guide-content ul {
+            margin: var(--spacing-md) 0;
+            padding-left: var(--spacing-xl)
+        }
+
+        .guide-content li {
+            margin: var(--spacing-sm) 0;
+            color: var(--text-secondary)
+        }
+
+        .code-block {
+            position: relative;
+            margin: var(--spacing-lg) 0
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            padding: var(--spacing-sm) var(--spacing-md)
+        }
+
+        .code-lang {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            text-transform: uppercase
+        }
+
+        .copy-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            color: var(--text-muted);
+            font-size: var(--text-xs);
+            cursor: pointer;
+            transition: all var(--transition-fast)
+        }
+
+        .copy-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border-hover)
+        }
+
+        .copy-btn.copied {
+            color: var(--success);
+            border-color: var(--success)
+        }
+
+        .code-header+pre {
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            margin-top: 0
+        }
+
+        .callout {
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            margin: var(--spacing-lg) 0;
+            border-left: 4px solid
+        }
+
+        .callout-info {
+            background: rgba(99, 102, 241, .1);
+            border-color: var(--accent-primary)
+        }
+
+        .callout-warning {
+            background: rgba(245, 158, 11, .1);
+            border-color: var(--warning)
+        }
+
+        .callout-success {
+            background: var(--success-bg);
+            border-color: var(--success)
+        }
+
+        .callout-title {
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm)
+        }
+
+        .share-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-2xl) 0;
+            text-align: center
+        }
+
+        .share-title {
+            font-size: var(--text-lg);
+            margin-bottom: var(--spacing-md)
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            text-decoration: none;
+            transition: all var(--transition-fast)
+        }
+
+        .share-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            color: var(--text-primary)
+        }
+
+        .consulting-cta {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-2xl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: var(--spacing-2xl) 0
+        }
+
+        .consulting-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, var(--accent-glow) 0%, transparent 60%);
+            opacity: .2
+        }
+
+        .consulting-cta h3 {
+            font-size: var(--text-xl);
+            margin-bottom: var(--spacing-sm);
+            position: relative
+        }
+
+        .consulting-cta p {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            position: relative
+        }
+
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-xl) 0;
+            margin-top: var(--spacing-2xl)
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md)
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-weight: 600
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: var(--text-sm)
+        }
+    </style>
+</head>
+
+<body>
+    <header class="guide-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../../">Dev Guides</a><span>/</span><span>Oracle Free Server Guide</span>
+            </nav>
+            <h1>Oracle Free Server Guide ☁️</h1>
+            <p class="hero-subtitle">Save ₹15,000/month with Oracle's insane "Always Free" tier. 4 vCPUs, 24GB RAM,
+                Forever Free.</p>
+            <div class="guide-meta">
+                <span class="meta-item">📅 Last updated: Feb 2026</span>
+                <span class="meta-item">⏱️ 8 min read</span>
+                <span class="badge badge-success">Save ₹1.8L / year</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="guide-layout">
+            <aside class="sidebar">
+                <nav class="toc">
+                    <h2 class="toc-title">On this page</h2>
+                    <ul class="toc-list">
+                        <li><a href="#why-oracle">Why Oracle?</a></li>
+                        <li><a href="#the-specs">The Specs (Crazy!)</a></li>
+                        <li><a href="#step-1">Step 1: Sign up</a></li>
+                        <li><a href="#step-2">Step 2: Create Instance</a></li>
+                        <li><a href="#step-3">Step 3: SSH Setup</a></li>
+                        <li><a href="#troubleshooting">Avoid the "Out of Capacity" Error</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <article class="guide-content">
+                <section id="why-oracle">
+                    <h2>Why Oracle? 🤔</h2>
+                    <p>Most "Free Tiers" from AWS or GCP expire after 12 months. Oracle's Always Free tier is actually
+                        <strong>forever</strong>. For Indian startups and indie devs, this is a goldmine. You can run
+                        multiple production-grade microservices, a heavy database, or even a build server without paying
+                        a single paisa.</p>
+                    <div class="callout callout-info">
+                        <div class="callout-title">💡 Real World math</div>
+                        <p>An equivalent AWS instance (t4g.xlarge) would cost you roughly $180/month. That's approx
+                            ₹15,000 saved every single month.</p>
+                    </div>
+                </section>
+
+                <section id="the-specs">
+                    <h2>The Specs (It's not a joke!) 🚀</h2>
+                    <p>Oracle offers ARM-based "Ampere" shapes that are surprisingly fast:</p>
+                    <ul>
+                        <li><strong>4 vCPUs</strong> (ARM Ampere)</li>
+                        <li><strong>24 GB RAM</strong></li>
+                        <li><strong>200 GB Block Storage</strong></li>
+                        <li><strong>10 TB Egress</strong> bandwidth per month</li>
+                    </ul>
+                </section>
+
+                <section id="step-1">
+                    <h2>Step 1: Signing up safely 🛡️</h2>
+                    <p>Signing up from India can be tricky. Use a card that has <strong>International Transactions
+                            enabled</strong>. They will do a small temporary charge (₹80-100) to verify your card and
+                        refund it immediately.</p>
+                    <div class="callout callout-warning">
+                        <div class="callout-title">⚠️ Warning</div>
+                        <p>Do NOT use a virtual card or some prepaid cards. Oracle's fraud detection is aggressive. Use
+                            a proper HDFC/ICICI/SBI Dev/Credit card.</p>
+                    </div>
+                </section>
+
+                <section id="step-2">
+                    <h2>Step 2: Spinning up the Instance ⚡</h2>
+                    <p>When creating your instance, make sure to select the <strong>"Always Free Eligible"</strong>
+                        image. Specifically, look for <strong>Oracle Linux</strong> or <strong>Ubuntu</strong> with the
+                        <strong>VM.Standard.A1.Flex</strong> shape.</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">pro-tip</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                        </div>
+                        <pre><code>Shape: VM.Standard.A1.Flex
+OCPU count: 4
+Memory (GB): 24</code></pre>
+                    </div>
+                </section>
+
+                <section id="step-3">
+                    <h2>Step 3: Opening Ports (The "UFW" Trap) 🕸️</h2>
+                    <p>Oracle has two firewalls: one in the Cloud Dashboard (Security Lists) and one on the OS. You need
+                        to open both. If you only open it in Ubuntu, your site still won't work.</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">bash</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                        </div>
+                        <pre><code># On Ubuntu, to open HTTP/HTTPS
+sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
+sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 443 -j ACCEPT
+sudo netfilter-persistent save</code></pre>
+                    </div>
+                </section>
+
+                <section id="troubleshooting">
+                    <h2>Avoiding "Out of Capacity" 🛑</h2>
+                    <p>Sometimes you'll see "Out of host capacity" in popular regions like Mumbai or Hyderabad. </p>
+                    <p><strong>The Fix:</strong> Use a simple terraform script or a python script to keep retrying the
+                        API every minute. Usually, you'll get one within 24-48 hours when someone else deletes their
+                        instance.</p>
+                </section>
+
+                <div class="share-section">
+                    <h3 class="share-title">Found this helpful? Share it with a broke dev! 🙏</h3>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn">𝕏 Twitter</a>
+                        <a href="#" class="share-btn">💼 LinkedIn</a>
+                        <a href="#" class="share-btn">💬 WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="consulting-cta">
+                    <h3>Need Help Setting Up Your Cloud? 🛠️</h3>
+                    <p>I help Indian startups migrate to free/cheap infrastructure. Let's save you some burn.</p>
+                    <div
+                        style="display:flex;justify-content:center;gap:var(--spacing-md);flex-wrap:wrap;position:relative">
+                        <a href="https://twitter.com/yourusername" class="btn btn-primary" target="_blank">DM on X</a>
+                        <a href="mailto:your@email.com" class="btn btn-secondary">Send Email</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand"><span>📚</span> Dev Guides</div>
+                <p class="footer-copy">Made with ☕ in India • MIT License</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyCode(btn) {
+            const code = btn.closest('.code-block').querySelector('code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.textContent = '✓ Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => { btn.textContent = '📋 Copy'; btn.classList.remove('copied') }, 2000);
+            });
+        }
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => { if (scrollY >= s.offsetTop - 100) current = s.id });
+            tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current) });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+dev-guides/
+│
+├── index.html                          # Landing page with guide cards grid
+├── README.md                           # Project documentation
+├── FOLDER_STRUCTURE.txt               # This file - directory overview
+│
+├── .github/
+│   └── workflows/
+│       └── deploy.yml                  # GitHub Actions for auto-deploy to Pages
+│
+├── assets/
+│   ├── css/
+│   │   └── shared-styles.css          # Shared stylesheet (colors, typography, components)
+│   │
+│   ├── images/                         # (Create as needed)
+│   │   └── og-image.png               # Open Graph image for social sharing
+│   │
+│   └── js/                             # (Create as needed)
+│       └── shared.js                   # Shared JavaScript utilities
+│
+├── templates/
+│   └── guide-template.html            # Reusable template for creating new guides
+│
+└── guides/
+    │
+    ├── oracle-free-server/            # Example guide folder
+    │   ├── index.html                 # Guide content (copy from template)
+    │   └── images/                    # Guide-specific images
+    │       └── screenshot-1.png
+    │
+    ├── github-actions/                # Future guide folder
+    │   └── index.html
+    │
+    ├── cloudflare-stack/              # Future guide folder
+    │   └── index.html
+    │
+    └── telegram-bots/                 # Future guide folder
+        └── index.html
+
+
+================================================================================
+                              HOW TO ADD A NEW GUIDE
+================================================================================
+
+1. Create a new folder in /guides/ with the guide slug
+   Example: /guides/my-new-guide/
+
+2. Copy /templates/guide-template.html to /guides/my-new-guide/index.html
+
+3. Replace the template placeholders:
+   - {{GUIDE_TITLE}}        → "My New Guide"
+   - {{GUIDE_DESCRIPTION}}  → Meta description for SEO
+   - {{GUIDE_SUBTITLE}}     → Short tagline
+   - {{LAST_UPDATED}}       → "January 2026"
+   - {{READ_TIME}}          → Estimated read time in minutes
+   - {{BENEFIT_BADGE}}      → "Save ₹X/month" or similar
+   - {{SHARE_TEXT}}         → URL-encoded share text
+   - {{GUIDE_URL}}          → Full URL to guide
+
+4. Update /index.html to add/modify the guide card
+
+5. Update README.md to list the new guide
+
+6. Commit and push - GitHub Actions will auto-deploy!
+
+
+================================================================================
+                                FILE PURPOSES
+================================================================================
+
+index.html
+  → Landing page with hero section, guide cards, and CTA
+  → Links to individual guides
+
+assets/css/shared-styles.css
+  → Design system with CSS variables
+  → Typography, colors, spacing
+  → Reusable components (buttons, cards, badges)
+  → Code block styling
+  → Responsive grid system
+
+templates/guide-template.html
+  → Blueprint for new guides
+  → Includes: TOC, code copy button, share section, consulting CTA
+  → Just copy, fill placeholders, and customize
+
+.github/workflows/deploy.yml
+  → Auto-deploys to GitHub Pages on push to main
+  → No build step needed (static HTML)
+
+README.md
+  → GitHub repo documentation
+  → Guide list with links
+  → Contribution guidelines
+
+
+================================================================================
+                              QUICK COMMANDS
+================================================================================
+
+# Preview locally (Python)
+python -m http.server 8000
+
+# Preview locally (Node)
+npx serve .
+
+# Create new guide folder
+mkdir -p guides/my-guide/images
+
+# Deploy (just push!)
+git add . && git commit -m "Add new guide" && git push

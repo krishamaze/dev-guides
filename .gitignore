@@ -1,0 +1,25 @@
+# Ignore temp/scratch files
+scratch/
+!scratch/.gitkeep
+
+# Ignore archive within project
+archive/
+!archive/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local

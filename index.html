@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Practical developer guides for Indian devs & startups. Save money, build faster, ship smarter.">
+  <meta name="author" content="Dev Guides">
+  <title>Dev Guides | Practical Guides for Indian Developers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/shared-styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <style>
+    .hero{text-align:center;padding:var(--spacing-3xl) 0;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);opacity:.3;pointer-events:none}
+    .hero-badge{display:inline-flex;align-items:center;gap:var(--spacing-sm);padding:var(--spacing-xs) var(--spacing-md);background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-full);font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--spacing-lg)}
+    .hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin-bottom:var(--spacing-md)}
+    .hero-subtitle{font-size:var(--text-lg);color:var(--text-secondary);max-width:600px;margin:0 auto var(--spacing-xl)}
+    .hero-stats{display:flex;justify-content:center;gap:var(--spacing-2xl);flex-wrap:wrap}
+    .stat-value{font-size:var(--text-2xl);font-weight:700;color:var(--accent-secondary)}
+    .stat-label{font-size:var(--text-sm);color:var(--text-muted)}
+    .guides-section{padding:var(--spacing-3xl) 0}
+    .section-header{text-align:center;margin-bottom:var(--spacing-2xl)}
+    .section-title{font-size:var(--text-2xl);margin-bottom:var(--spacing-sm)}
+    .section-subtitle{color:var(--text-muted)}
+    .guides-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--spacing-lg)}
+    .guide-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);padding:var(--spacing-xl);transition:all var(--transition-base);display:flex;flex-direction:column;position:relative;overflow:hidden}
+    .guide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent-gradient);opacity:0;transition:opacity var(--transition-base)}
+    .guide-card:hover{background:var(--bg-card-hover);border-color:var(--border-hover);transform:translateY(-6px);box-shadow:var(--shadow-xl)}
+    .guide-card:hover::before{opacity:1}
+    .guide-card.featured{border-color:rgba(99,102,241,.3)}
+    .guide-card.featured::before{opacity:1}
+    .guide-card.placeholder{opacity:.6;cursor:default}
+    .guide-card.placeholder:hover{transform:none;box-shadow:none}
+    .guide-icon{font-size:2.5rem;margin-bottom:var(--spacing-md)}
+    .guide-status{position:absolute;top:var(--spacing-md);right:var(--spacing-md)}
+    .guide-title{font-size:var(--text-xl);font-weight:600;margin-bottom:var(--spacing-sm)}
+    .guide-description{font-size:var(--text-sm);color:var(--text-secondary);flex-grow:1;margin-bottom:var(--spacing-lg)}
+    .guide-benefit{display:flex;align-items:center;gap:var(--spacing-sm);padding:var(--spacing-sm) var(--spacing-md);background:var(--success-bg);border-radius:var(--radius-md);margin-bottom:var(--spacing-md)}
+    .guide-benefit-text{font-size:var(--text-sm);color:var(--success);font-weight:500}
+    .guide-specs{display:flex;gap:var(--spacing-sm);flex-wrap:wrap;margin-bottom:var(--spacing-lg)}
+    .spec-tag{padding:var(--spacing-xs) var(--spacing-sm);background:var(--bg-tertiary);border-radius:var(--radius-sm);font-size:var(--text-xs);color:var(--text-muted)}
+    .guide-cta{display:inline-flex;align-items:center;gap:var(--spacing-sm);color:var(--accent-secondary);font-size:var(--text-sm);font-weight:500}
+    .cta-section{padding:var(--spacing-3xl) 0}
+    .cta-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-2xl);padding:var(--spacing-2xl);text-align:center;position:relative;overflow:hidden}
+    .cta-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top,var(--accent-glow) 0%,transparent 60%);opacity:.2}
+    .cta-title{font-size:var(--text-2xl);margin-bottom:var(--spacing-sm);position:relative}
+    .cta-subtitle{color:var(--text-secondary);margin-bottom:var(--spacing-xl);position:relative}
+    .cta-buttons{display:flex;justify-content:center;gap:var(--spacing-md);flex-wrap:wrap;position:relative}
+    .footer{border-top:1px solid var(--border-color);padding:var(--spacing-2xl) 0}
+    .footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--spacing-lg)}
+    .footer-brand{display:flex;align-items:center;gap:var(--spacing-sm)}
+    .footer-name{font-weight:600}
+    .footer-links{display:flex;gap:var(--spacing-lg)}
+    .footer-link{color:var(--text-muted);font-size:var(--text-sm)}
+    .footer-link:hover{color:var(--text-primary)}
+    .footer-copy{color:var(--text-muted);font-size:var(--text-sm)}
+    @media(max-width:768px){.footer-content{flex-direction:column;text-align:center}}
+  </style>
+  <!-- Analytics Placeholder: Add GA4/Plausible here -->
+</head>
+<body>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge"><span>🇮🇳</span><span>Built for Indian Devs & Startups</span></div>
+      <h1><span class="text-gradient">Dev Guides</span> that Actually Save You Money 💰</h1>
+      <p class="hero-subtitle">Practical, no-BS technical guides focused on real cost savings. Written by a dev who's been in the startup trenches.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-value">₹15k+</div><div class="stat-label">Monthly Savings</div></div>
+        <div class="stat"><div class="stat-value">1</div><div class="stat-label">Guides Published</div></div>
+        <div class="stat"><div class="stat-value">3</div><div class="stat-label">Coming Soon</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guides-section" id="guides">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">📚 Available Guides</h2>
+        <p class="section-subtitle">Handpicked guides that I wish I had when starting out</p>
+      </div>
+      <div class="guides-grid">
+        <article class="guide-card featured">
+          <span class="guide-status"><span class="badge badge-success">✨ Featured</span></span>
+          <div class="guide-icon">☁️</div>
+          <h3 class="guide-title">Oracle Free Server Guide</h3>
+          <p class="guide-description">Stop paying for AWS/DigitalOcean! Get a powerful always-free server that never expires. Perfect for side projects, APIs, and small SaaS.</p>
+          <div class="guide-benefit"><span>💰</span><span class="guide-benefit-text">Save ₹15,000/month</span></div>
+          <div class="guide-specs"><span class="spec-tag">4 vCPUs</span><span class="spec-tag">24GB RAM</span><span class="spec-tag">200GB Storage</span><span class="spec-tag">Forever Free</span></div>
+          <a href="guides/oracle-free-server/" class="guide-cta">Read Guide <span>→</span></a>
+        </article>
+        <article class="guide-card placeholder">
+          <span class="guide-status"><span class="badge">🔜 Coming Soon</span></span>
+          <div class="guide-icon">⚡</div>
+          <h3 class="guide-title">GitHub Actions Mastery</h3>
+          <p class="guide-description">Automate everything with GitHub Actions. CI/CD pipelines, scheduled tasks, and workflow automation—all on the free tier.</p>
+          <div class="guide-benefit"><span>⏱️</span><span class="guide-benefit-text">Save 10+ hours/week</span></div>
+          <div class="guide-specs"><span class="spec-tag">CI/CD</span><span class="spec-tag">Automation</span><span class="spec-tag">Free Tier</span></div>
+          <span class="guide-cta" style="opacity:.5">Notify Me <span>→</span></span>
+        </article>
+        <article class="guide-card placeholder">
+          <span class="guide-status"><span class="badge">🔜 Coming Soon</span></span>
+          <div class="guide-icon">🛡️</div>
+          <h3 class="guide-title">Cloudflare Free Stack</h3>
+          <p class="guide-description">DNS, CDN, SSL, DDoS protection, Workers, R2 storage—all for free. The ultimate guide to Cloudflare's generous free tier.</p>
+          <div class="guide-benefit"><span>💰</span><span class="guide-benefit-text">Save ₹5,000+/month</span></div>
+          <div class="guide-specs"><span class="spec-tag">CDN</span><span class="spec-tag">Workers</span><span class="spec-tag">R2 Storage</span></div>
+          <span class="guide-cta" style="opacity:.5">Notify Me <span>→</span></span>
+        </article>
+        <article class="guide-card placeholder">
+          <span class="guide-status"><span class="badge">🔜 Coming Soon</span></span>
+          <div class="guide-icon">🤖</div>
+          <h3 class="guide-title">Telegram Bot Automation</h3>
+          <p class="guide-description">Build powerful Telegram bots for notifications, monitoring, and automation. Perfect for indie hackers and small teams.</p>
+          <div class="guide-benefit"><span>🚀</span><span class="guide-benefit-text">Free Infrastructure</span></div>
+          <div class="guide-specs"><span class="spec-tag">Python/Node.js</span><span class="spec-tag">Webhooks</span><span class="spec-tag">Alerts</span></div>
+          <span class="guide-cta" style="opacity:.5">Notify Me <span>→</span></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <h2 class="cta-title">Need Custom Automation? 🛠️</h2>
+        <p class="cta-subtitle">I build automation tools, scrapers, and integrations for startups. Let's chat about what you're trying to solve.</p>
+        <div class="cta-buttons">
+          <a href="https://twitter.com/yourusername" class="btn btn-primary" target="_blank" rel="noopener">DM on X</a>
+          <a href="mailto:your@email.com" class="btn btn-secondary">Send Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand"><span>📚</span><span class="footer-name">Dev Guides</span></div>
+        <nav class="footer-links">
+          <a href="#guides" class="footer-link">Guides</a>
+          <a href="https://github.com/yourusername/dev-guides" class="footer-link" target="_blank">GitHub</a>
+          <a href="https://twitter.com/yourusername" class="footer-link" target="_blank">Twitter</a>
+        </nav>
+        <p class="footer-copy">Made with ☕ in India • MIT License</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

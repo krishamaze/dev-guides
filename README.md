@@ -16,7 +16,7 @@ Push to GitHub, enable Pages, promote Oracle guide.
 ---
 
 ![Guides Count](https://img.shields.io/badge/guides-1-blue?style=flat-square)
-![GitHub Stars](https://img.shields.io/github/stars/yourusername/dev-guides?style=flat-square)
+![GitHub Stars](https://img.shields.io/github/stars/krishamaze/dev-guides?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 
 > **Practical, no-BS technical guides for Indian developers & startups** 🇮🇳
@@ -58,7 +58,7 @@ Got a guide idea? Found an error? Contributions welcome!
 
 ### Suggest a Guide
 
-1. Open an [Issue](https://github.com/yourusername/dev-guides/issues) with the label `guide-request`
+1. Open an [Issue](https://github.com/krishamaze/dev-guides/issues) with the label `guide-request`
 2. Describe what you'd like to see covered
 3. Mention potential cost savings or productivity gains
 
@@ -90,7 +90,7 @@ Got a guide idea? Found an error? Contributions welcome!
 
 Want updates when new guides drop?
 
-- Follow me on [Twitter/X](https://twitter.com/yourusername)
+- Follow me on [Twitter/X](https://x.com/krishamaze)
 - Star this repo ⭐
 
 ---
@@ -105,7 +105,7 @@ I build automation tools, scrapers, and integrations for startups.
 - Custom automation tools
 - Telegram/Discord bots
 
-[**DM me on X**](https://twitter.com/yourusername) or [**Send an email**](mailto:your@email.com)
+[**DM me on X**](https://x.com/krishamaze) or [**Threads**](https://www.threads.net/@kris.na.27)
 
 ---
 

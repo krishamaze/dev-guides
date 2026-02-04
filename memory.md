@@ -27,11 +27,19 @@ Project initialized with full file structure. First guide (Oracle Free Server) i
 5. **CTA**: "DM me for consulting" on every page
 
 ## Next Steps
+- [ ] **UI REFACTOR (High Priority)**: Fix "Uncle's WhatsApp / Bollywood poster" vibe.
 - [ ] Push to GitHub and enable Pages
 - [ ] Replace placeholder social links (Twitter, email)
-- [ ] Add OG image for social sharing
-- [ ] Write next guide (GitHub Actions or Cloudflare)
-- [ ] Add actual analytics tracking (GA4 or Plausible)
+
+## 🤖 Remote Agent Handover
+**Mission**: Refactor `assets/css/shared-styles.css` and `index.html` to achieve a minimalist, high-end premium aesthetic.
+
+**Critical Feedback**:
+- Current vibe: "Uncle's WhatsApp forward discovered stickers" / "Early 2000s Bollywood poster".
+- Overdose of emojis: 💰 📚 🇮🇳 ☁️ ⚡.
+- Strategy: Ruthlessly simplify. Use professional typography, subtle gradients, and generous white space. Move away from "vibrant/loud" to "clean/minimal".
+
+**Authority**: You have full permission to rewrite the CSS and restructure the HTML. "Do the needful."
 
 ## Files to Ignore
 - `scratch/` - Temp work

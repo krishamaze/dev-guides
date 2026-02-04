@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Learn how to get a powerful, forever-free ARM server from Oracle Cloud. 4 vCPUs, 24GB RAM, and 200GB storage for ₹0.">
+        content="Learn how to get a powerful, forever-free ARM server from Oracle Cloud. 4 vCPUs, 24GB RAM, and 200GB storage for zero cost.">
     <meta name="author" content="Dev Guides">
     <title>Oracle Free Server Guide | Dev Guides</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/shared-styles.css">
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>D</text></svg>">
     <style>
         .guide-header {
             padding: var(--spacing-3xl) 0 var(--spacing-xl);
@@ -39,6 +39,19 @@
             color: var(--accent-secondary)
         }
 
+        .guide-header h1 {
+            font-size: var(--text-3xl);
+            letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-sm)
+        }
+
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: var(--text-lg);
+            line-height: 1.7;
+            max-width: 640px
+        }
+
         .guide-meta {
             display: flex;
             align-items: center;
@@ -57,7 +70,7 @@
 
         .guide-layout {
             display: grid;
-            grid-template-columns: 250px 1fr;
+            grid-template-columns: 220px 1fr;
             gap: var(--spacing-2xl);
             padding: var(--spacing-2xl) 0
         }
@@ -79,18 +92,19 @@
         }
 
         .guide-content {
-            max-width: 800px
+            max-width: 720px
         }
 
         .guide-content h2 {
-            font-size: var(--text-2xl);
-            margin: var(--spacing-2xl) 0 var(--spacing-lg);
-            padding-top: var(--spacing-lg)
+            font-size: var(--text-xl);
+            margin: var(--spacing-2xl) 0 var(--spacing-md);
+            padding-top: var(--spacing-lg);
+            letter-spacing: -0.01em
         }
 
         .guide-content h3 {
-            font-size: var(--text-xl);
-            margin: var(--spacing-xl) 0 var(--spacing-md)
+            font-size: var(--text-lg);
+            margin: var(--spacing-xl) 0 var(--spacing-sm)
         }
 
         .guide-content p {
@@ -105,7 +119,8 @@
 
         .guide-content li {
             margin: var(--spacing-sm) 0;
-            color: var(--text-secondary)
+            color: var(--text-secondary);
+            line-height: 1.7
         }
 
         .code-block {
@@ -127,31 +142,8 @@
         .code-lang {
             font-size: var(--text-xs);
             color: var(--text-muted);
-            text-transform: uppercase
-        }
-
-        .copy-btn {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            padding: var(--spacing-xs) var(--spacing-sm);
-            background: transparent;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            color: var(--text-muted);
-            font-size: var(--text-xs);
-            cursor: pointer;
-            transition: all var(--transition-fast)
-        }
-
-        .copy-btn:hover {
-            color: var(--text-primary);
-            border-color: var(--border-hover)
-        }
-
-        .copy-btn.copied {
-            color: var(--success);
-            border-color: var(--success)
+            text-transform: uppercase;
+            letter-spacing: 0.05em
         }
 
         .code-header+pre {
@@ -163,16 +155,16 @@
             padding: var(--spacing-lg);
             border-radius: var(--radius-lg);
             margin: var(--spacing-lg) 0;
-            border-left: 4px solid
+            border-left: 3px solid
         }
 
         .callout-info {
-            background: rgba(99, 102, 241, .1);
+            background: rgba(99, 102, 241, .08);
             border-color: var(--accent-primary)
         }
 
         .callout-warning {
-            background: rgba(245, 158, 11, .1);
+            background: rgba(234, 179, 8, .08);
             border-color: var(--warning)
         }
 
@@ -183,7 +175,13 @@
 
         .callout-title {
             font-weight: 600;
+            font-size: var(--text-sm);
             margin-bottom: var(--spacing-sm)
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            font-size: var(--text-sm)
         }
 
         .share-section {
@@ -196,14 +194,15 @@
         }
 
         .share-title {
-            font-size: var(--text-lg);
-            margin-bottom: var(--spacing-md)
+            font-size: var(--text-base);
+            margin-bottom: var(--spacing-md);
+            font-weight: 500
         }
 
         .share-buttons {
             display: flex;
             justify-content: center;
-            gap: var(--spacing-md);
+            gap: var(--spacing-sm);
             flex-wrap: wrap
         }
 
@@ -211,7 +210,7 @@
             display: inline-flex;
             align-items: center;
             gap: var(--spacing-sm);
-            padding: var(--spacing-sm) var(--spacing-lg);
+            padding: var(--spacing-sm) var(--spacing-md);
             background: var(--bg-tertiary);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
@@ -228,34 +227,32 @@
         }
 
         .consulting-cta {
-            background: var(--bg-card);
+            background: var(--bg-secondary);
             border: 1px solid var(--border-color);
-            border-radius: var(--radius-2xl);
+            border-radius: var(--radius-xl);
             padding: var(--spacing-2xl);
             text-align: center;
-            position: relative;
-            overflow: hidden;
             margin: var(--spacing-2xl) 0
         }
 
-        .consulting-cta::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top, var(--accent-glow) 0%, transparent 60%);
-            opacity: .2
-        }
-
         .consulting-cta h3 {
-            font-size: var(--text-xl);
-            margin-bottom: var(--spacing-sm);
-            position: relative
+            font-size: var(--text-lg);
+            margin-bottom: var(--spacing-sm)
         }
 
         .consulting-cta p {
             color: var(--text-secondary);
             margin-bottom: var(--spacing-lg);
-            position: relative
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap
         }
 
         .footer {
@@ -276,7 +273,21 @@
             display: flex;
             align-items: center;
             gap: var(--spacing-sm);
-            font-weight: 600
+            font-weight: 600;
+            font-size: var(--text-sm)
+        }
+
+        .footer-logo {
+            width: 24px;
+            height: 24px;
+            background: var(--accent-gradient);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-xs);
+            font-weight: 700;
+            color: white
         }
 
         .footer-copy {
@@ -292,13 +303,12 @@
             <nav class="breadcrumb">
                 <a href="../../">Dev Guides</a><span>/</span><span>Oracle Free Server Guide</span>
             </nav>
-            <h1>Oracle Free Server Guide ☁️</h1>
-            <p class="hero-subtitle">Save ₹15,000/month with Oracle's insane "Always Free" tier. 4 vCPUs, 24GB RAM,
-                Forever Free.</p>
+            <h1>Oracle Free Server Guide</h1>
+            <p class="hero-subtitle">Save significant monthly costs with Oracle's Always Free tier. Get 4 vCPUs, 24GB RAM, and 200GB storage at zero cost—forever.</p>
             <div class="guide-meta">
-                <span class="meta-item">📅 Last updated: Feb 2026</span>
-                <span class="meta-item">⏱️ 8 min read</span>
-                <span class="badge badge-success">Save ₹1.8L / year</span>
+                <span class="meta-item">Last updated: Feb 2026</span>
+                <span class="meta-item">8 min read</span>
+                <span class="badge badge-success">Save ~1.8L / year</span>
             </div>
         </div>
     </header>
@@ -310,31 +320,31 @@
                     <h2 class="toc-title">On this page</h2>
                     <ul class="toc-list">
                         <li><a href="#why-oracle">Why Oracle?</a></li>
-                        <li><a href="#the-specs">The Specs (Crazy!)</a></li>
+                        <li><a href="#the-specs">The Specs</a></li>
                         <li><a href="#step-1">Step 1: Sign up</a></li>
                         <li><a href="#step-2">Step 2: Create Instance</a></li>
                         <li><a href="#step-3">Step 3: SSH Setup</a></li>
-                        <li><a href="#troubleshooting">Avoid the "Out of Capacity" Error</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
                     </ul>
                 </nav>
             </aside>
 
             <article class="guide-content">
                 <section id="why-oracle">
-                    <h2>Why Oracle? 🤔</h2>
+                    <h2>Why Oracle?</h2>
                     <p>Most "Free Tiers" from AWS or GCP expire after 12 months. Oracle's Always Free tier is actually
                         <strong>forever</strong>. For Indian startups and indie devs, this is a goldmine. You can run
                         multiple production-grade microservices, a heavy database, or even a build server without paying
                         a single paisa.</p>
                     <div class="callout callout-info">
-                        <div class="callout-title">💡 Real World math</div>
+                        <div class="callout-title">Real World Math</div>
                         <p>An equivalent AWS instance (t4g.xlarge) would cost you roughly $180/month. That's approx
-                            ₹15,000 saved every single month.</p>
+                            15,000 saved every single month.</p>
                     </div>
                 </section>
 
                 <section id="the-specs">
-                    <h2>The Specs (It's not a joke!) 🚀</h2>
+                    <h2>The Specs</h2>
                     <p>Oracle offers ARM-based "Ampere" shapes that are surprisingly fast:</p>
                     <ul>
                         <li><strong>4 vCPUs</strong> (ARM Ampere)</li>
@@ -345,26 +355,26 @@
                 </section>
 
                 <section id="step-1">
-                    <h2>Step 1: Signing up safely 🛡️</h2>
+                    <h2>Step 1: Signing up safely</h2>
                     <p>Signing up from India can be tricky. Use a card that has <strong>International Transactions
-                            enabled</strong>. They will do a small temporary charge (₹80-100) to verify your card and
+                            enabled</strong>. They will do a small temporary charge (around 80-100 INR) to verify your card and
                         refund it immediately.</p>
                     <div class="callout callout-warning">
-                        <div class="callout-title">⚠️ Warning</div>
+                        <div class="callout-title">Warning</div>
                         <p>Do NOT use a virtual card or some prepaid cards. Oracle's fraud detection is aggressive. Use
-                            a proper HDFC/ICICI/SBI Dev/Credit card.</p>
+                            a proper HDFC/ICICI/SBI Debit or Credit card.</p>
                     </div>
                 </section>
 
                 <section id="step-2">
-                    <h2>Step 2: Spinning up the Instance ⚡</h2>
+                    <h2>Step 2: Spinning up the Instance</h2>
                     <p>When creating your instance, make sure to select the <strong>"Always Free Eligible"</strong>
                         image. Specifically, look for <strong>Oracle Linux</strong> or <strong>Ubuntu</strong> with the
                         <strong>VM.Standard.A1.Flex</strong> shape.</p>
                     <div class="code-block">
                         <div class="code-header">
-                            <span class="code-lang">pro-tip</span>
-                            <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            <span class="code-lang">config</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
                         <pre><code>Shape: VM.Standard.A1.Flex
 OCPU count: 4
@@ -373,13 +383,13 @@ Memory (GB): 24</code></pre>
                 </section>
 
                 <section id="step-3">
-                    <h2>Step 3: Opening Ports (The "UFW" Trap) 🕸️</h2>
+                    <h2>Step 3: Opening Ports</h2>
                     <p>Oracle has two firewalls: one in the Cloud Dashboard (Security Lists) and one on the OS. You need
                         to open both. If you only open it in Ubuntu, your site still won't work.</p>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-lang">bash</span>
-                            <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                         </div>
                         <pre><code># On Ubuntu, to open HTTP/HTTPS
 sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
@@ -389,27 +399,26 @@ sudo netfilter-persistent save</code></pre>
                 </section>
 
                 <section id="troubleshooting">
-                    <h2>Avoiding "Out of Capacity" 🛑</h2>
-                    <p>Sometimes you'll see "Out of host capacity" in popular regions like Mumbai or Hyderabad. </p>
+                    <h2>Avoiding "Out of Capacity"</h2>
+                    <p>Sometimes you'll see "Out of host capacity" in popular regions like Mumbai or Hyderabad.</p>
                     <p><strong>The Fix:</strong> Use a simple terraform script or a python script to keep retrying the
                         API every minute. Usually, you'll get one within 24-48 hours when someone else deletes their
                         instance.</p>
                 </section>
 
                 <div class="share-section">
-                    <h3 class="share-title">Found this helpful? Share it with a broke dev! 🙏</h3>
+                    <h3 class="share-title">Found this helpful? Share it</h3>
                     <div class="share-buttons">
-                        <a href="#" class="share-btn">𝕏 Twitter</a>
-                        <a href="#" class="share-btn">💼 LinkedIn</a>
-                        <a href="#" class="share-btn">💬 WhatsApp</a>
+                        <a href="#" class="share-btn">Twitter</a>
+                        <a href="#" class="share-btn">LinkedIn</a>
+                        <a href="#" class="share-btn">WhatsApp</a>
                     </div>
                 </div>
 
                 <div class="consulting-cta">
-                    <h3>Need Help Setting Up Your Cloud? 🛠️</h3>
+                    <h3>Need Help Setting Up Your Cloud?</h3>
                     <p>I help Indian startups migrate to free/cheap infrastructure. Let's save you some burn.</p>
-                    <div
-                        style="display:flex;justify-content:center;gap:var(--spacing-md);flex-wrap:wrap;position:relative">
+                    <div class="cta-buttons">
                         <a href="https://twitter.com/yourusername" class="btn btn-primary" target="_blank">DM on X</a>
                         <a href="mailto:your@email.com" class="btn btn-secondary">Send Email</a>
                     </div>
@@ -421,8 +430,8 @@ sudo netfilter-persistent save</code></pre>
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand"><span>📚</span> Dev Guides</div>
-                <p class="footer-copy">Made with ☕ in India • MIT License</p>
+                <div class="footer-brand"><div class="footer-logo">D</div> Dev Guides</div>
+                <p class="footer-copy">Made in India · MIT License</p>
             </div>
         </div>
     </footer>
@@ -431,9 +440,9 @@ sudo netfilter-persistent save</code></pre>
         function copyCode(btn) {
             const code = btn.closest('.code-block').querySelector('code').textContent;
             navigator.clipboard.writeText(code).then(() => {
-                btn.textContent = '✓ Copied!';
+                btn.textContent = 'Copied';
                 btn.classList.add('copied');
-                setTimeout(() => { btn.textContent = '📋 Copy'; btn.classList.remove('copied') }, 2000);
+                setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied') }, 2000);
             });
         }
         const sections = document.querySelectorAll('section[id]');

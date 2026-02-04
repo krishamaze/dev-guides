@@ -6,7 +6,7 @@
 2026-02-04
 
 ## Current State
-🟢 **Active Development**
+Active Development
 
 Project initialized with full file structure. First guide (Oracle Free Server) is complete and published.
 
@@ -20,26 +20,16 @@ Project initialized with full file structure. First guide (Oracle Free Server) i
 - `FOLDER_STRUCTURE.txt` - Directory overview
 
 ## Key Decisions Made
-1. **Design**: Dark mode, Indigo accent (#6366f1), Inter font
+1. **Design**: Premium dark mode, Indigo accent (#6366f1), Inter font, minimal/clean aesthetic
 2. **Structure**: Each guide in `/guides/{slug}/index.html`
 3. **Target Audience**: Indian devs, startups, technical founders
-4. **Tone**: Practical, no-BS, conversational with emojis
+4. **Tone**: Practical, no-BS, professional (no emojis)
 5. **CTA**: "DM me for consulting" on every page
 
 ## Next Steps
-- [ ] **UI REFACTOR (High Priority)**: Fix "Uncle's WhatsApp / Bollywood poster" vibe.
-- [ ] Push to GitHub and enable Pages
+- [x] **UI REFACTOR (High Priority)**: Fix "Uncle's WhatsApp / Bollywood poster" vibe. DONE
+- [ ] Push to GitHub and enable Pages (git commands blocked - do manually)
 - [ ] Replace placeholder social links (Twitter, email)
-
-## 🤖 Remote Agent Handover
-**Mission**: Refactor `assets/css/shared-styles.css` and `index.html` to achieve a minimalist, high-end premium aesthetic.
-
-**Critical Feedback**:
-- Current vibe: "Uncle's WhatsApp forward discovered stickers" / "Early 2000s Bollywood poster".
-- Overdose of emojis: 💰 📚 🇮🇳 ☁️ ⚡.
-- Strategy: Ruthlessly simplify. Use professional typography, subtle gradients, and generous white space. Move away from "vibrant/loud" to "clean/minimal".
-
-**Authority**: You have full permission to rewrite the CSS and restructure the HTML. "Do the needful."
 
 ## Files to Ignore
 - `scratch/` - Temp work
@@ -52,7 +42,7 @@ Project initialized with full file structure. First guide (Oracle Free Server) i
 python -m http.server 8000
 
 # Deploy (just push to main)
-git add . && git commit -m "Update" && git push
+git add . && git commit -m "refactor: premium minimal UI" && git push
 ```
 
 ## Session Notes
@@ -61,3 +51,30 @@ git add . && git commit -m "Update" && git push
 - Created Oracle Free Server guide with Indian pricing context
 - Set up GitHub Actions for auto-deploy
 - Moved to PARA structure: `~/projects/1_PROJECTS/dev-guides/`
+
+### 2026-02-04: UI Refactor Complete
+Changes made to fix the "Uncle's WhatsApp / Bollywood poster" aesthetic:
+
+**index.html**
+- Removed ALL emojis (was: 17+ emojis scattered everywhere)
+- Replaced emoji icons with clean SVG icons for guide cards
+- Simplified hero section - cleaner headline, no badge emojis
+- Removed flashy glow/gradient overlays
+- Added proper logo mark (gradient "D" box) instead of emoji favicon
+- Cleaner stats section with simpler styling
+
+**shared-styles.css**
+- Darker, more refined background colors (#09090b base)
+- Reduced accent glow opacity (0.15 instead of 0.3)
+- Removed aggressive card hover transforms
+- Simplified button hover states (no glow effects)
+- Tighter letter-spacing for headlines
+- Removed unnecessary animation keyframes
+
+**guides/oracle-free-server/index.html**
+- Stripped all section emojis from headings
+- Cleaner callout boxes (removed emoji titles like "💡 Real World math")
+- Updated copy button text (no clipboard emoji)
+- Consistent footer with main site
+
+**Result**: Clean, minimal, premium dark-mode aesthetic. Professional without being boring.

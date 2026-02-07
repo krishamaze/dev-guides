@@ -8,7 +8,7 @@
 ## Current State
 Active Development
 
-Project initialized with full file structure. First guide (Oracle Free Server) is complete and published. (Deployment triggered 2026-02-07)
+Project initialized with full file structure. First guide (Oracle Free Server) is complete and published. Site is live at https://krishamaze.github.io/dev-guides/
 
 ## What Exists
 - `index.html` - Landing page with 4 guide cards (1 live, 3 placeholders)

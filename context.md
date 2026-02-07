@@ -38,8 +38,8 @@ Provide practical, no-BS technical guides for Indian developers and startups, fo
 ### Completed
 - **Project Infrastructure**: Full file structure initialized with PARA-style organization.
 - **Design System**: Refactored to a premium, minimal dark-mode aesthetic (Indigo accent, Inter font, minimal glow).
-- **Oracle Guide**: First complete guide (Oracle Free Server) published with Indian-market context (pricing in INR, card troubleshooting).
-- **Deployment Pipeline**: GitHub Actions set up and site pushed to GitHub Pages.
+- **Oracle Guide**: First complete guide (Oracle Free Server) published and live.
+- **Deployment Pipeline**: GitHub Actions set up and site is live at `https://krishamaze.github.io/dev-guides/`.
 - **Git Sync**: Successfully pushed to `https://github.com/krishamaze/dev-guides.git`.
 
 ### Pending

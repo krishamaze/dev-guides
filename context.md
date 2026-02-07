@@ -39,11 +39,11 @@ Provide practical, no-BS technical guides for Indian developers and startups, fo
 - **Project Infrastructure**: Full file structure initialized with PARA-style organization.
 - **Design System**: Refactored to a premium, minimal dark-mode aesthetic (Indigo accent, Inter font, minimal glow).
 - **Oracle Guide**: First complete guide (Oracle Free Server) published with Indian-market context (pricing in INR, card troubleshooting).
-- **Deployment Pipeline**: GitHub Actions set up for automated publishing to GitHub Pages.
+- **Deployment Pipeline**: GitHub Actions set up and site pushed to GitHub Pages.
+- **Git Sync**: Successfully pushed to `https://github.com/krishamaze/dev-guides.git`.
 
 ### Pending
-- [ ] **Git Sync**: Manual push to GitHub needed (commands were blocked during initialization).
-- [ ] **Link Updates**: Replace placeholder social links (Twitter, LinkedIn, Email) in all footers and CTA sections.
+- [ ] **Social Media Audit**: Update all links in `index.html` and guide subpages to correct production handles.
 - [ ] **New Guides**: Create coming-soon guides (GitHub Actions, Cloudflare Free Stack, Telegram Bots).
 
 ## Key Technical Patterns
@@ -78,9 +78,8 @@ git add . && git commit -m "feat: publish oracle guide" && git push origin main
 
 ## Known Issues
 - **Social links**: All social media handles in the code (e.g., footers) are placeholders or need verification against `@krishamaze`.
-- **Git State**: Local repository might not be tracking remote origin yet if the initial `git init` steps were interrupted.
+- **Custom Links**: Verify that the Threads link `@kris.na.27` is the correct handle as per user requirements.
 
 ## Next Session Priorities
-1. **GitHub Synchronization**: Establish connection to remote and verify GitHub Pages deployment.
-2. **Social Media Audit**: Update all links in `index.html` and guide subpages to correct production handles.
-3. **Content Expansion**: Start the "Cloudflare Free Stack" guide using the established template.
+1. **Social Media Audit**: Update all links in `index.html` and guide subpages to correct production handles.
+2. **Content Expansion**: Start the "Cloudflare Free Stack" guide using the established template.

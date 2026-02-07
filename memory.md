@@ -27,9 +27,13 @@ Project initialized with full file structure. First guide (Oracle Free Server) i
 5. **CTA**: "DM me for consulting" on every page
 
 ## Next Steps
-- [x] **UI REFACTOR (High Priority)**: Fix "Uncle's WhatsApp / Bollywood poster" vibe. DONE
-- [ ] Push to GitHub and enable Pages (git commands blocked - do manually)
+- [x] **UI REFACTOR (High Priority)**: Fix "Uncle's WhatsApp / Bollywood poster" vibe.
+- [x] Push to GitHub and enable Pages.
 - [ ] Replace placeholder social links (Twitter, email)
+
+## Known Issues
+- **Social links**: All social media handles in the code (e.g., footers) are placeholders or need verification against `@krishamaze`.
+- **Infrastructure**: Verify that GitHub Pages is correctly pointed to the `main` branch output.
 
 ## Files to Ignore
 - `scratch/` - Temp work

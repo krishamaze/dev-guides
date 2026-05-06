@@ -414,6 +414,26 @@ pre code {
 .py-2xl { padding-top: var(--spacing-2xl); padding-bottom: var(--spacing-2xl); }
 .py-3xl { padding-top: var(--spacing-3xl); padding-bottom: var(--spacing-3xl); }
 
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  width: 24px;
+  height: 24px;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: white;
+}
+
 /* Divider */
 .divider {
   height: 1px;

@@ -454,11 +454,24 @@ sudo netfilter-persistent save</code></pre>
         }
         const sections = document.querySelectorAll('section[id]');
         const tocLinks = document.querySelectorAll('.toc-list a');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(s => { if (scrollY >= s.offsetTop - 100) current = s.id });
-            tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current) });
-        });
+
+        const observerOptions = {
+            rootMargin: '-100px 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    tocLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
     </script>
 </body>
 

@@ -452,13 +452,28 @@ sudo netfilter-persistent save</code></pre>
                 setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied') }, 2000);
             });
         }
+        // Active TOC highlighting using IntersectionObserver
         const sections = document.querySelectorAll('section[id]');
         const tocLinks = document.querySelectorAll('.toc-list a');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(s => { if (scrollY >= s.offsetTop - 100) current = s.id });
-            tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current) });
-        });
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-10% 0px -80% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    tocLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
     </script>
 </body>
 

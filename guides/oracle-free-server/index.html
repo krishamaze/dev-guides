@@ -443,23 +443,7 @@ sudo netfilter-persistent save</code></pre>
         </div>
     </footer>
 
-    <script>
-        function copyCode(btn) {
-            const code = btn.closest('.code-block').querySelector('code').textContent;
-            navigator.clipboard.writeText(code).then(() => {
-                btn.textContent = 'Copied';
-                btn.classList.add('copied');
-                setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied') }, 2000);
-            });
-        }
-        const sections = document.querySelectorAll('section[id]');
-        const tocLinks = document.querySelectorAll('.toc-list a');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(s => { if (scrollY >= s.offsetTop - 100) current = s.id });
-            tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current) });
-        });
-    </script>
+    <script src="../../assets/js/guide.js"></script>
 </body>
 
 </html>
